@@ -36,19 +36,21 @@ RUN cd ${TEMP_DIR}/orbeon-${OrbeonTag}.${OrbeonDateString}-$(echo ${OrbeonReleas
 
 RUN mkdir -p ${ProjectsDir} && \
     cd ${TEMP_DIR} && \
-    wget https://github.com/ewg118/numishare/archive/master.zip && \
+    wget https://github.com/nomisma/framework/archive/master.zip && \
     unzip master.zip && \
     rm master.zip && \
-    mv numishare-master ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/numishare && \
-    sed -i s/localhost:8080/${ExistHost}:${ExistPort}/g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/numishare/exist-config.xml
+    mv framework-master ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma && \
+    sed -i s/localhost:8080/${ExistHost}:${ExistPort}/g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/exist-config.xml
 RUN cd ${TEMP_DIR} && \
-    sed -i s!localhost:8080/solr/numishare-published/!${SolrHost}:${SolrPort}/solr/numishare-published/!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/numishare/xforms/admin.xhtml
+    sed -i s!localhost:8080/solr/nomisma/!${SolrHost}:${SolrPort}/solr/nomisma/!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/xforms/admin.xhtml
 RUN cd ${TEMP_DIR} && \
-    sed -i s!/usr/local/projects/numishare!/usr/local/tomcat/webapps/orbeon/WEB-INF/resources/apps/numishare!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/numishare/xforms/admin.xhtml
+    sed -i s!localhost:8080/solr/nomisma-fuseki/!${SolrHost}:${SolrPort}/solr/nomisma-fuseki/!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/xforms/admin.xhtml
+RUN cd ${TEMP_DIR} && \
+    sed -i s!/usr/local/projects/nomisma!/usr/local/tomcat/webapps/orbeon/WEB-INF/resources/apps/nomisma!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/xforms/admin.xhtml
 
 ### Creating themes
 
-RUN cd ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/numishare/ && \
+RUN cd ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/ && \
     ln -s ui default
 
 ### Install vim/vi
