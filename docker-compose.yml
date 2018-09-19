@@ -12,6 +12,9 @@ services:
   web:
     image: numishare:v1
     build: ./web
+    volumes:
+      - ./docker-nomisma-data/nomisma-data:/usr/local/projects/nomisma-data
+      - ./docker-nomisma-data/nomisma:/usr/local/projects/nomisma
     ports:
       - "10400:8080"
     environment:
