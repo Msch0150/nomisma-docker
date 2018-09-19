@@ -6,6 +6,7 @@ mkdir -p docker-solr-data/nomisma-fuseki/data
 mkdir -p docker-nomisma-data/nomisma-data/id
 mkdir -p docker-nomisma-data/nomisma-data/ontology
 mkdir -p docker-nomisma-data/nomisma/dump
+mkdir -p docker-nomisma-data/NUDS
 #mkdir -p docker-loris-data/images
 #mkdir -p loris
 
