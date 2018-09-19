@@ -32,9 +32,10 @@ RUN cd ${TEMP_DIR}/orbeon-${OrbeonTag}.${OrbeonDateString}-$(echo ${OrbeonReleas
     mv orbeon-${OrbeonTag}.${OrbeonDateString}-$(echo ${OrbeonRelease} | tr /a-z/ /A-Z/) ${CATALINA_HOME}/webapps/orbeon
 
 
-### Download numishare
+### Download nomisma
 
-RUN mkdir -p ${ProjectsDir} && \
+RUN mkdir -p ${ProjectsDir}/nomisma && \
+    mkdir -p ${ProjectsDir}/nomisma-data && \
     cd ${TEMP_DIR} && \
     wget https://github.com/nomisma/framework/archive/master.zip && \
     unzip master.zip && \
