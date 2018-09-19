@@ -15,6 +15,7 @@ services:
     volumes:
       - ./docker-nomisma-data/nomisma-data:/usr/local/projects/nomisma-data
       - ./docker-nomisma-data/nomisma:/usr/local/projects/nomisma
+      - ./docker-nomisma-data/NUDS:/usr/local/projects/NUDS
     ports:
       - "10400:8080"
     environment:
