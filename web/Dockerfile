@@ -38,6 +38,7 @@ RUN cd ${TEMP_DIR}/orbeon-${OrbeonTag}.${OrbeonDateString}-$(echo ${OrbeonReleas
 
 RUN mkdir -p ${ProjectsDir}/nomisma && \
     mkdir -p ${ProjectsDir}/nomisma-data && \
+    mkdir -p ${ProjectsDir}/NUDS && \
     cd ${TEMP_DIR} && \
     wget https://github.com/nomisma/framework/archive/master.zip && \
     unzip master.zip && \
