@@ -1,5 +1,7 @@
 # nomisma-docker
 
+!!! Create in fusaki a dataset (currently fusaki, but should be nomisma, change config.xml http://fusaki:3030/fusaki/... to ttp://fusaki:3030/nomisma/...
+
 > docker-solr-data directory need to be writable by id=8983.
 
 To setup nomisma in a Linux environment with Docker installed:
