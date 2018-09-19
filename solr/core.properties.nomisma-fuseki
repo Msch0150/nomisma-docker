@@ -1,0 +1,6 @@
+#Written by CorePropertiesLocator
+#Mon Apr 02 14:10:12 UTC 2018
+name=nomisma-fuseki
+config=solrconfig.xml
+schema=schema.xml
+dataDir=data
