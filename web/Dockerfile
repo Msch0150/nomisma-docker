@@ -4,10 +4,12 @@ ENV OrbeonTag="2017.2" OrbeonRelease="ce" OrbeonDateString="201712300816"
 ENV OrbeoanDownloadLink="https://github.com/orbeon/orbeon-forms/releases/download"
 ENV CATALINA_HOME=/usr/local/tomcat
 ENV TEMP_DIR=/var/tmp
-ENV ExistHost=db
-ENV ExistPort=8080 
+ENV FUSEKI_HOST=fuseki
+ENV FUSEKI_PORT=3030 
 ENV SolrHost=solr
 ENV SolrPort=8983
+ENV NomismaHost=192.168.178.75
+ENV NomismaPort=10408
 ENV ProjectsDir=/usr/local/projects
    
 ### Download Orbeon
@@ -47,6 +49,10 @@ RUN cd ${TEMP_DIR} && \
     sed -i s!localhost:8080/solr/nomisma-fuseki/!${SolrHost}:${SolrPort}/solr/nomisma-fuseki/!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/xforms/admin.xhtml
 RUN cd ${TEMP_DIR} && \
     sed -i s!/usr/local/projects/nomisma!/usr/local/tomcat/webapps/orbeon/WEB-INF/resources/apps/nomisma!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/xforms/admin.xhtml
+RUN sed -i s!localhost:8080/orbeon/nomisma/!${NomismaHost}:${NomismaPort}/orbeon/nomisma/!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/config.xml
+RUN sed -i s!localhost:8080/fuseki/nomisma/!${FUSEKI_HOST}:${FUSEKI_PORT}/fuseki/nomisma/!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/config.xml
+RUN sed -i s!localhost:8080/solr/!${solrHost}:${solrPort}/solr/!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/config.xml
+
 
 ### Creating themes
 
