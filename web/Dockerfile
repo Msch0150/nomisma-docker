@@ -52,7 +52,7 @@ RUN cd ${TEMP_DIR} && \
     sed -i s!/usr/local/projects/nomisma!/usr/local/tomcat/webapps/orbeon/WEB-INF/resources/apps/nomisma!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/xforms/admin.xhtml
 RUN sed -i s!localhost:8080/orbeon/nomisma/!${NomismaHost}:${NomismaPort}/orbeon/nomisma/!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/config.xml
 RUN sed -i s!localhost:8080/fuseki/nomisma/!${FUSEKI_HOST}:${FUSEKI_PORT}/fuseki/nomisma/!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/config.xml
-RUN sed -i s!localhost:8080/solr/!${solrHost}:${solrPort}/solr/!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/config.xml
+RUN sed -i s!localhost:8080/solr/!${SolrHost}:${SolrPort}/solr/!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/config.xml
 
 
 ### Creating themes
