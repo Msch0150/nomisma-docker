@@ -39,8 +39,7 @@ RUN mkdir -p ${ProjectsDir} && \
     wget https://github.com/nomisma/framework/archive/master.zip && \
     unzip master.zip && \
     rm master.zip && \
-    mv framework-master ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma && \
-    sed -i s/localhost:8080/${ExistHost}:${ExistPort}/g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/exist-config.xml
+    mv framework-master ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma
 RUN cd ${TEMP_DIR} && \
     sed -i s!localhost:8080/solr/nomisma/!${SolrHost}:${SolrPort}/solr/nomisma/!g ${CATALINA_HOME}/webapps/orbeon/WEB-INF/resources/apps/nomisma/xforms/admin.xhtml
 RUN cd ${TEMP_DIR} && \
