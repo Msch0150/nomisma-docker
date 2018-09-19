@@ -13,6 +13,7 @@ unzip master.zip
 mv NUDS-master/nuds.xsd .
 rm master.zip
 rm -rf NUDS-master
+cd ../..
 #mkdir -p docker-loris-data/images
 #mkdir -p loris
 
