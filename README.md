@@ -8,7 +8,7 @@ To setup nomisma in a Linux environment with Docker installed:
     mkdir -p ${TARGET_DIR} && cd ${TARGET_DIR} && \
     wget https://github.com/Msch0150/nomisma-docker/archive/master.zip && \
     unzip master.zip && \
-    rm master.zip && \
+    rm -f master.zip && \
     cd nomisma-docker-master && \
     chmod +x setup.sh && \
     ./setup.sh
