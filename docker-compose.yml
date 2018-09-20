@@ -3,6 +3,7 @@ version: '3'
 services:
   solr:
     image: solr:v1
+    container_name: nomisma_solr
     build: ./solr
     volumes:
       - ./docker-solr-data/nomisma/data:/opt/solr/server/solr/nomisma/data
@@ -11,6 +12,7 @@ services:
       - "10404:8983"
   web:
     image: numishare:v1
+    container_name: nomisma_web
     build: ./web
     volumes:
       - ./docker-nomisma-data/nomisma-data:/usr/local/projects/nomisma-data
@@ -19,11 +21,13 @@ services:
     ports:
       - "10400:8080"
     environment:
-      JAVA_OPTS: '-server -Djava.awt.headless=true -Xms1G -Xmx1G -XX:MaxPermSize=256m -XX:NewSize=896m -XX:MaxNewSize=896m -Dlog4j.configuration=/usr/local/tomcat/lib/log4j.properties -XX:+UseConcMarkSweepGC -XX:+CMSPermGenSweepingEnabled -XX:+CMSClassUnloadingEnabled'
+      JAVA_OPTS: '-server -Djava.awt.headless=true -Xms1G -Xmx1G -XX:MaxPermSize=256m -XX:NewSize=896m -XX:MaxNewSize=896m -Dlog4j.configuration=/usr/local/tomcat/lib/log4j.properties -XX
+:+UseConcMarkSweepGC -XX:+CMSPermGenSweepingEnabled -XX:+CMSClassUnloadingEnabled'
     depends_on:
       - solr
       - fuseki
   fuseki:
     image: stain/jena-fuseki
+    container_name: nomisma_fuseki
     ports:
       - "10408:3030"
