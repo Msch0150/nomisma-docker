@@ -2,7 +2,7 @@ version: '3'
 
 services:
   solr:
-    image: solr:v1
+    image: solr:vo
     container_name: nomisma_solr
     build: ./solr
     volumes:
@@ -11,7 +11,7 @@ services:
     ports:
       - "10404:8983"
   web:
-    image: numishare:v1
+    image: numishare:vo
     container_name: nomisma_web
     build: ./web
     volumes:
@@ -28,5 +28,7 @@ services:
   fuseki:
     image: stain/jena-fuseki
     container_name: nomisma_fuseki
+    volumes:
+      - ./docker-nomisma-data/docker-fuseki-data:/fuseki
     ports:
       - "10408:3030"
