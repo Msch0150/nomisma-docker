@@ -19,9 +19,7 @@ Login to fuseki (username/password is displayed in startup console) and create a
 
 ## Overview
 
-... to be updated ...
-
-![numishare_overview_20180910](https://user-images.githubusercontent.com/37273467/45276680-05e0ac00-b4c4-11e8-9211-a20f4d271d66.jpg)
+![nomisma](https://user-images.githubusercontent.com/37273467/45902115-bbc1c980-bde5-11e8-8dac-8ec75281a610.JPG)
 
 (Image created using cat ${TARGET_DIR}/docker-compose.yml | docker run -i funkwerk/compose_plantuml --link-graph --boundaries| docker run -i think/plantuml > out.svg)
 
